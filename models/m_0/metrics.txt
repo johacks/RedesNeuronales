@@ -1,0 +1,6 @@
+Human error: 0.00%
+Bias=(1-train_accuracy) - human error: 47.87%
+Variance=(1-val_accuracy) - bias: -0.17%
+Prediction Error = Bias² + Variance + Human error:  0.23
+Area under ROC curve Train: 80.58%
+Area under ROC curve Validation: 79.99%
