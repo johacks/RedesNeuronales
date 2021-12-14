@@ -20,7 +20,8 @@ digraph bias3_6 {
     
     capa9 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 80)}|{(12897, 4)}}"];
 
-    entrenamiento [label="Batch size=128 \nEpochs=100 \nCategoricalCrossEntropy \nLabelSmoothing=0.65 \nAdam[learning_rate=0.0007]"]
+    entrenamiento [
+        label="Batch size=2048 \nEpochs=500 \nCategoricalCrossEntropy \nAdam[learning_rate=0.0001]"]
 
     capa1 -> capa2;
     capa2 -> capa3;

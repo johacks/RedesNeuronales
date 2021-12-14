@@ -1,0 +1,25 @@
+digraph variance3_1 {
+    rankdir=TB;
+    node [shape=record];
+
+    capa1 [label="Dense[HeUniform,l2[0.001]]\n + PReLU\n + Dropout[0.2]|{input:|output:}|{{(12897, 17)}|{(12897, 4000)}}"];
+
+    capa2 [label="Dense[HeUniform]\n + PReLU\n + Dropout[0.2]|{input:|output:}|{{(12897, 4000)}|{(12897, 2000)}}"];
+
+    capa3 [label="Dense[HeUniform]\n + PReLU\n + LayerNormalization\n + GaussianDropout[0.6]|{input:|output:}|{{(12897, 2000)}|{(12897, 1000)}}"];
+    
+    capa4 [label="Dense[HeUniform]\n + PReLU\n + LayerNormalization\n + GaussianDropout[0.45]|{input:|output:}|{{(12897, 1000)}|{(12897, 600)}}"];
+    
+    capa5 [label="Dense[HeUniform]\n  + PReLU|{input:|output:}|{{(12897, 600)}|{(12897, 240)}}"];
+    
+    capa6 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 240)}|{(12897, 4)}}"];
+
+    entrenamiento [
+        label="Batch size=32 \nEpochs=125 \nCategoricalCrossEntropy[label_smoothing=0.90] \nAdam[learning_rate=0.00005]"]
+
+    capa1 -> capa2;
+    capa2 -> capa3;
+    capa3 -> capa4;
+    capa4 -> capa5;
+    capa5 -> capa6;
+}
