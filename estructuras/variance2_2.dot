@@ -1,0 +1,28 @@
+digraph bias3_6 {
+    rankdir=TB;
+    node [shape=record];
+
+    capa1 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 17)}|{(12897, 400)}}"];
+
+    capa2 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 400)}|{(12897, 320)}}"];
+
+    capa3 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 320)}|{(12897, 240)}}"];
+    
+    capa4 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 240)}|{(12897, 160)}}"];
+    
+    capa5 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 160)}|{(12897, 80)}}"];
+    
+    capa6 [label="Dense[SELU, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 80)}|{(12897, 40)}}"];
+
+    capa7 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 40)}|{(12897, 4)}}"];
+
+    entrenamiento [
+        label="Batch size=2048 \nEpochs=2000 \nCategoricalCrossEntropy \nAdam[learning_rate=0.0001]"]
+
+    capa1 -> capa2;
+    capa2 -> capa3;
+    capa3 -> capa4;
+    capa4 -> capa5;
+    capa5 -> capa6;
+    capa6 -> capa7;
+}

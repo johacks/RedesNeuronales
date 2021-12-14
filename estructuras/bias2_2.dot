@@ -1,0 +1,49 @@
+digraph bias3_6 {
+    rankdir=TB;
+    node [shape=record];
+
+    capa1 [label="Dense[ReLU, HeNormal,l2[0.001]]|{input:|output:}|{{(12897, 17)}|{(12897, 56)}}"];
+
+    capa2 [label="Dense[ReLU, HeNormal,l2[0.001]]|{input:|output:}|{{(12897, 56)}|{(12897, 52)}}"];
+
+    capa3 [label="Dense[ReLU, HeNormal,l2[0.001]]|{input:|output:}|{{(12897, 52)}|{(12897, 48)}}"];
+    
+    capa4 [label="Dense[ReLU, HeNormal,l2[0.001]]|{input:|output:}|{{(12897, 48)}|{(12897, 44)}}"];
+    
+    capa5 [label="Dense[ReLU, HeNormal,l2[0.001]]|{input:|output:}|{{(12897, 44)}|{(12897, 40)}}"];
+    
+    capa6 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 40)}|{(12897, 36)}}"];
+    
+    capa7 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 36)}|{(12897, 32)}}"];
+    
+    capa8 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 32)}|{(12897, 28)}}"];
+    
+    capa9 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 28)}|{(12897, 24)}}"];
+
+    capa10 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 24)}|{(12897, 20)}}"];
+
+    capa11 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 20)}|{(12897, 16)}}"];
+
+    capa12 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 16)}|{(12897, 12)}}"];
+
+    capa13 [label="Dense[ReLU, HeNormal]|{input:|output:}|{{(12897, 12)}|{(12897, 8)}}"];
+
+    capa14 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 8)}|{(12897, 4)}}"];
+
+    entrenamiento [
+        label="Batch size=32 \nEpochs=300 \nCategoricalCrossEntropy \nAdam[learning_rate=0.0001]"]
+
+    capa1 -> capa2;
+    capa2 -> capa3;
+    capa3 -> capa4;
+    capa4 -> capa5;
+    capa5 -> capa6;
+    capa6 -> capa7;
+    capa7 -> capa8;
+    capa8 -> capa9;
+    capa9 -> capa10;
+    capa10 -> capa11;
+    capa11 -> capa12;
+    capa12 -> capa13;
+    capa13 -> capa14;
+}

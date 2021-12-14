@@ -1,0 +1,28 @@
+digraph bias3_6 {
+    rankdir=TB;
+    node [shape=record];
+
+    capa1 [label="Dense[ReLU, HeUniform,l2[0.001]]|{input:|output:}|{{(12897, 17)}|{(12897, 200)}}"];
+
+    capa2 [label="Dense[ReLU, HeUniform,l2[0.001]]|{input:|output:}|{{(12897, 200)}|{(12897, 160)}}"];
+
+    capa3 [label="Dense[ReLU, HeUniform,l2[0.001]]|{input:|output:}|{{(12897, 160)}|{(12897, 120)}}"];
+    
+    capa4 [label="Dense[ReLU, HeUniform]|{input:|output:}|{{(12897, 120)}|{(12897, 80)}}"];
+    
+    capa5 [label="Dense[ReLU, HeUniform]|{input:|output:}|{{(12897, 80)}|{(12897, 40)}}"];
+    
+    capa6 [label="Dense[ReLU, HeUniform]|{input:|output:}|{{(12897, 40)}|{(12897, 20)}}"];
+
+    capa7 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 20)}|{(12897, 4)}}"];
+
+    entrenamiento [
+        label="Batch size=32 \nEpochs=300 \nCategoricalCrossEntropy \nAdam[learning_rate=0.0001]"]
+
+    capa1 -> capa2;
+    capa2 -> capa3;
+    capa3 -> capa4;
+    capa4 -> capa5;
+    capa5 -> capa6;
+    capa6 -> capa7;
+}
