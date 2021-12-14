@@ -1,0 +1,33 @@
+digraph bias3_6 {
+    rankdir=TB;
+    node [shape=record];
+
+    capa1 [label="Dense[selu, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 17)}|{(12897, 16000)}}"];
+
+    capa2 [label="Dense[selu, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 16000)}|{(12897, 8000)}}"];
+
+    capa3 [label="Dense[selu, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 8000)}|{(12897, 4000)}}"];
+    
+    capa4 [label="Dense[selu, LecunNormal,l2[0.001]]\n + Dropout[0.5]|{input:|output:}|{{(12897, 4000)}|{(12897, 2000)}}"];
+    
+    capa5 [label="Dense[selu, LecunNormal,l2[0.001]]|{input:|output:}|{{(12897, 2000)}|{(12897, 480)}}"];
+    
+    capa6 [label="Dense[selu, LecunNormal,l2[0.001]]|{input:|output:}|{{(12897, 480)}|{(12897, 320)}}"];
+    
+    capa7 [label="Dense[selu, LecunNormal,l2[0.001]]|{input:|output:}|{{(12897, 320)}|{(12897, 160)}}"];
+    
+    capa8 [label="Dense[selu, LecunNormal,l2[0.001]]|{input:|output:}|{{(12897, 160)}|{(12897, 80)}}"];
+    
+    capa9 [label="Dense[softmax]\n|{input:|output:}|{{(12897, 80)}|{(12897, 4)}}"];
+
+    entrenamiento [label="Batch size=128 \nEpochs=100 \nCategoricalCrossEntropy \nLabelSmoothing=0.65 \nAdam[learning_rate=0.0007]"]
+
+    capa1 -> capa2;
+    capa2 -> capa3;
+    capa3 -> capa4;
+    capa4 -> capa5;
+    capa5 -> capa6;
+    capa6 -> capa7;
+    capa7 -> capa8;
+    capa8 -> capa9;
+}
